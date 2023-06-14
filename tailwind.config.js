@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     container: {
       padding: {
-        DEFAULT: "100px",
-        sm: "100px",
-        lg: "100px",
-        xl: "100px",
+        DEFAULT: "20px",
+        sm: "30px",
+        lg: "40px",
+        xl: "70px",
         "2xl": "100px",
       },
       center: true,

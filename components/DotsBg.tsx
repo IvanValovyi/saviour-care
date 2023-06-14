@@ -1,34 +1,13 @@
 import Image from "next/image";
 
 interface Props {
-  top?: string;
-  left?: string;
-  bottom?: string;
-  right?: string;
-  translate?: string;
-  floor?: boolean;
+  className?: string;
 }
 
-export default function DotsBg({
-  top,
-  left,
-  bottom,
-  right,
-  translate,
-  floor,
-}: Props) {
+export default function DotsBg({ className }: Props) {
   return (
     <div
-      className={`absolute pointer-events-none select-none ${
-        floor ? "z-[1]" : "z-[-1]"
-      }`}
-      style={{
-        top: `${top || "initial"}`,
-        left: `${left || "initial"}`,
-        bottom: `${bottom || "initial"}`,
-        right: `${right || "initial"}`,
-        transform: `${translate ? `translate(${translate})` : "none"}`,
-      }}
+      className={`absolute pointer-events-none select-none ${className || ""}`}
     >
       <Image
         src="/images/dots-bg.png"

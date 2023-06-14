@@ -1,14 +1,16 @@
 "use client";
+import { Close, Menu } from "@/helpers/icons";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import MobileMenu from "./MobileMenu";
 
-interface Link {
+export interface LinkItem {
   text: string;
   href: string;
 }
 
-const links: Link[] = [
+const links: LinkItem[] = [
   {
     text: "Home",
     href: "#",
@@ -33,9 +35,42 @@ const links: Link[] = [
 
 export default function Header() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [menuOpened, setMenuOpened] = useState(false);
+  const header = useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      header?.current && setHeaderHeight(header.current.clientHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (header.current) {
+      setHeaderHeight(header.current.clientHeight);
+    }
+  }, [header]);
+
+  useEffect(() => {
+    if (menuOpened) {
+      window.scrollTo(0, 0);
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [menuOpened]);
 
   return (
-    <header className="container flex items-center justify-between pt-[50px]">
+    <header
+      ref={header}
+      className="container flex items-center justify-between pt-[20px] sm:pt-[30px] md:pt-[40px] lg:pt-[50px]"
+    >
       <Image
         src="/images/logo.png"
         alt="Saviour Care logo"
@@ -43,7 +78,7 @@ export default function Header() {
         height={40}
         priority
       />
-      <div className="flex items-center gap-[40px]">
+      <div className="hidden items-center gap-[40px] xl:flex">
         {links.map((link, i) => {
           return (
             <Link
@@ -60,6 +95,28 @@ export default function Header() {
           );
         })}
       </div>
+      <div
+        className="flex items-center justify-center text-black xl:hidden"
+        onClick={() => {
+          setMenuOpened(!menuOpened);
+        }}
+      >
+        <Menu
+          className={`h-[32px] transition-all ${
+            !menuOpened
+              ? "opacity-[1] scale-1 w-[32px]"
+              : "opacity-0 scale-0 w-0"
+          }`}
+        />
+        <Close
+          className={`h-[32px] transition-all ${
+            menuOpened
+              ? "opacity-[1] scale-1 w-[32px]"
+              : "opacity-0 scale-0 w-0"
+          }`}
+        />
+      </div>
+      <MobileMenu headerHeight={headerHeight} links={links} show={menuOpened} />
     </header>
   );
 }

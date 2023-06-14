@@ -75,22 +75,22 @@ const allServices: Service[] = [
 
 export default function OfferServices() {
   return (
-    <div className="relative overflow-hidden mt-[210px]">
+    <div className="relative overflow-hidden mt-[80px] sm:mt-[120px] md:mt-[150px] lg:mt-[170px] xl:mt-[210px]">
       <div className="container flex items-center flex-col text-center relative">
-        <h2 className="text-[45px] leading-[56px] font-bold text-violetDark w-max pb-[28px] mb-[30px] relative before:absolute before:bottom-0 before:left-[50%] before:translate-x-[-50%] before:h-[2px] before:rounded-[5px] before:w-[56px] before:bg-black">
+        <h2 className="text-[28px] leading-[32px] min-[350px]:text-[36px] min-[350px]:leading-[43px] sm:text-[45px] sm:leading-[56px] font-bold text-violetDark sm:w-max pb-[24px] mb-[22px] sm:pb-[28px] sm:mb-[30px] relative before:absolute before:bottom-0 before:left-[50%] before:translate-x-[-50%] before:h-[2px] before:rounded-[5px] before:w-[56px] before:bg-black">
           Services we Offer
         </h2>
         <p
-          className={`text-greyLight ${roboto.className} font-medium text-[19px] leading-[27px] tracking-[0.02em] w-max max-w-[952px] mb-[85px]`}
+          className={`text-greyLight ${roboto.className} font-medium text-[14px] leading-[18px] min-[350px]:text-[16px] min-[350px]:leading-[22px] sm:text-[19px] sm:leading-[27px] tracking-[0.02em] lg:w-max max-w-[952px] mb-[28px] sm:mb-[85px]`}
         >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa.
         </p>
-        <div className="grid grid-cols-3 gap-[34px] mb-[72px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[18px] md:gap-[34px] mb-[48px] md:mb-[72px]">
           {allServices.map((service, i) => {
             return (
               <div
-                className="flex flex-col items-center p-[38px] rounded-[20px] shadow-md bg-white"
+                className="flex flex-col items-center p-[24px] md:p-[38px] rounded-[20px] shadow-md bg-white"
                 key={i}
               >
                 <div className="flex items-center justify-center h-[100px] mb-[18px]">
@@ -102,10 +102,10 @@ export default function OfferServices() {
                     loading="lazy"
                   />
                 </div>
-                <h3 className="text-black text-[24px] font-bold">
+                <h3 className="text-black text-[20px] md:text-[24px] font-bold">
                   {service.label}
                 </h3>
-                <p className="text-greyDark text-[16px] leading-[28px]">
+                <p className="text-greyDark text-[14px] md:text-[16px] leading-[28px]">
                   {service.text}
                 </p>
               </div>
@@ -113,9 +113,9 @@ export default function OfferServices() {
           })}
         </div>
         <BlueButton text="Load more" />
-        <DotsBg right="50px" top="50%" translate="0, -20%" />
+        <DotsBg className="top-[50%] right-[50px] translate-y-[-20%] z-[-1]" />
       </div>
-      <SpotBg left="-170px" top="50%" translate="0, -50%" />
+      <SpotBg className="left-[-170px] top-[50%] translate-y-[-50%]" />
     </div>
   );
 }

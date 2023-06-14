@@ -4,13 +4,13 @@ import DotsBg from "./DotsBg";
 
 export default function Intro() {
   return (
-    <div className="container relative flex items-center justify-between gap-[12px] pt-[125px] z-10">
+    <div className="container relative flex items-center justify-between gap-[12px] pt-[48px] sm:pt-[80px] lg:pt-[125px] flex-col-reverse lg:flex-row">
       <div className="flex flex-col flex-1">
-        <h1 className="text-5xl leading-[1.2] font-bold mb-[48px] text-grayBlue">
+        <h1 className="text-3xl min-[350px]:text-4xl sm:text-5xl leading-[1.2] font-bold mb-[24px] sm:mb-[28px] xl:mb-[48px] text-grayBlue">
           Virtual healthcare Saviour for you
         </h1>
         <p
-          className={`text-lg font-medium mb-[130px] text-blueLight ${roboto.className}`}
+          className={`text-sm min-[350px]:text-base sm:text-lg font-medium mb-[48px] sm:mb-[80px] xl:mb-[130px] text-blueLight ${roboto.className}`}
         >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa.
@@ -29,7 +29,7 @@ export default function Intro() {
           priority
         />
       </div>
-      <DotsBg top="60px" left="30px" translate="-100%, 0" />
+      <DotsBg className="top-[60px] left-[30px] translate-x-[-100%] z-[-1]" />
     </div>
   );
 }

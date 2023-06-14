@@ -45,7 +45,7 @@ export default function CustomersSlider() {
   const [swiper, setSwiper] = useState<any>(null);
 
   return (
-    <div className="flex items-center flex-col mt-[210px] container relative">
+    <div className="flex items-center flex-col mt-[80px] sm:mt-[120px] md:mt-[150px] lg:mt-[170px] xl:mt-[210px] container relative">
       <Swiper
         onSwiper={(swiper) => setSwiper(swiper)}
         className="rounded-[24px] w-full"
@@ -68,14 +68,14 @@ export default function CustomersSlider() {
           );
         })}
       </Swiper>
-      <div className="flex items-center justify-center mt-[48px]">
+      <div className="flex items-center justify-center mt-[35px] sm:mt-[48px]">
         <div
           className="text-bluePrimary w-max cursor-pointer transition-all hover:scale-[1.1] hover:opacity-[0.7] active:opacity-[0.9] active:scale-[1]"
           id="prev-customer-btn"
         >
-          <Arrow />
+          <Arrow className="w-[28px] sm:w-[35px]" />
         </div>
-        <div className="flex mx-[90px] gap-[20px]">
+        <div className="flex mx-[37px] gap-[17px] sm:mx-[90px] sm:gap-[20px]">
           {allCustomers.map((e, i) => {
             return (
               <div
@@ -94,11 +94,11 @@ export default function CustomersSlider() {
           className="text-bluePrimary rotate-180 w-max cursor-pointer transition-all hover:scale-[1.1] hover:opacity-[0.7] active:opacity-[0.9] active:scale-[1]"
           id="next-customer-btn"
         >
-          <Arrow />
+          <Arrow className="w-[28px] sm:w-[35px]" />
         </div>
       </div>
-      <DotsBg bottom="115px" left="45px" />
-      <DotsBg bottom="-252px" right="70px" />
+      <DotsBg className="left-0 top-[-18px] sm:top-[initial] sm:bottom-[115px] sm:left-[10px] md:left-[-26px] lg:left-[0px] xl:left-[45px] z-[-1]" />
+      <DotsBg className="bottom-[-162px] md:bottom-[-192px] lg:bottom-[-212px] xl:bottom-[-252px] right-[5px] lg:right-[70px] z-[-1]" />
     </div>
   );
 }
