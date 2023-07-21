@@ -18,25 +18,25 @@ const allCustomers: Customer[] = [
     name: "Jane Doe",
     icon: "/images/customers/1.png",
     position: "Manager",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu magna purus. Proin augue odio, mollis et facilisis id, tristique eu tellus.",
   },
   {
     name: "John Doe",
     icon: "/images/customers/2.png",
     position: "Designer",
-    text: "Nam ut leo ullamcorper mauris tempor bibendum. Sed rutrum elit eu justo lobortis congue. Suspendisse posuere.",
+    text: "Aenean maximus justo magna, id blandit orci venenatis sed. Aliquam eget elementum lorem, vel laoreet nulla. Donec fermentum sed lorem  in bibe.",
   },
   {
     name: "Alex Guf",
     icon: "/images/customers/3.png",
     position: "Founder",
-    text: "Integer a iaculis urna. In hac habitasse platea dictumst. Nunc suscipit ut enim id sodales. Nunc eget vulputate nibh.",
+    text: "Fusce in posuere dui, sit amet bibendum sem. Ut finibus ante nunc, at convallis urna congue non. Duis faucibus lectus ut imperdiet dena un pulvinar.",
   },
   {
     name: "Phil Monte",
     icon: "/images/customers/4.png",
     position: "Developer",
-    text: "Duis fringilla diam pharetra sem sagittis malesuada. Nam sed luctus augue. Vivamus nec aliquet erat.",
+    text: "Suspendisse in risus feugiat, ornare massa at, scelerisque magna. Cras tincidunt auctor quam id iaculis. Nam cursus leo, interdum tempor del velit.",
   },
 ];
 

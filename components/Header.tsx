@@ -83,7 +83,7 @@ export default function Header() {
           return (
             <Link
               href={link.href}
-              className={`relative transition-all text-[18px] font-bold leading-none cursor-pointer before:absolute before:w-[0%] before:h-[2px] before:rounded-[100%] before:bg-blueDark before:bottom-[-12px] before:left-[50%] before:translate-x-[-50%] before:transition-all hover:before:w-[100%] before:pointer-events-none active:opacity-[0.8] active:before:opacity-[0.8] active:before:w-[90%] ${
+              className={`relative transition-all text-[18px] font-bold leading-none cursor-pointer before:absolute before:w-[0%] before:h-[2px] before:bg-blueDark before:bottom-[-12px] before:left-[50%] before:translate-x-[-50%] before:transition-all hover:before:w-[100%] before:pointer-events-none active:opacity-[0.8] active:before:opacity-[0.8] active:before:w-[90%] ${
                 activeIndex == i
                   ? "before:w-[120%] text-blueDark pointer-events-none"
                   : "text-violetLight before:bg-violetLight before:rounded-[0%] opacity-[0.5] hover:opacity-[1]"
