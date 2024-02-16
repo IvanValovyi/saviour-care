@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dotsBg {
+	transform: scale(0.3);
+}
+
+.spotBg {
+	transform: scale(0.7);
+	opacity: 0;
+}
+
+.introPicture {
+	transform: scale(0.7) rotateX(-90deg) translateX(250px);
+	opacity: 0.1;
+}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import MobileMenu from "./MobileMenu";
+import ScrollAnimation from "./ScrollAnimation";
 
 export interface LinkItem {
   text: string;
@@ -71,51 +72,91 @@ export default function Header() {
       ref={header}
       className="container flex items-center justify-between pt-[20px] sm:pt-[30px] md:pt-[40px] lg:pt-[50px]"
     >
-      <Image
-        src="/images/logo.png"
-        alt="Saviour Care logo"
-        width={200}
-        height={40}
-        priority
-      />
-      <div className="hidden items-center gap-[40px] xl:flex">
-        {links.map((link, i) => {
-          return (
-            <Link
-              href={link.href}
-              className={`relative transition-all text-[18px] font-bold leading-none cursor-pointer before:absolute before:w-[0%] before:h-[2px] before:bg-blueDark before:bottom-[-12px] before:left-[50%] before:translate-x-[-50%] before:transition-all hover:before:w-[100%] before:pointer-events-none active:opacity-[0.8] active:before:opacity-[0.8] active:before:w-[90%] ${
-                activeIndex == i
-                  ? "before:w-[120%] text-blueDark pointer-events-none"
-                  : "text-violetLight before:bg-violetLight before:rounded-[0%] opacity-[0.5] hover:opacity-[1]"
-              }`}
-              key={i}
-            >
-              {link.text}
-            </Link>
-          );
-        })}
-      </div>
-      <div
-        className="flex items-center justify-center text-black xl:hidden"
-        onClick={() => {
-          setMenuOpened(!menuOpened);
+      <ScrollAnimation
+        el={
+          <Image
+            src="/images/logo.png"
+            alt="Saviour Care logo"
+            width={200}
+            height={40}
+            priority
+          />
+        }
+        gsapOptions={{
+          x: 0,
+          scale: 1,
+          opacity: 1,
         }}
-      >
-        <Menu
-          className={`h-[32px] transition-all ${
-            !menuOpened
-              ? "opacity-[1] scale-1 w-[32px]"
-              : "opacity-0 scale-0 w-0"
-          }`}
-        />
-        <Close
-          className={`h-[32px] transition-all ${
-            menuOpened
-              ? "opacity-[1] scale-1 w-[32px]"
-              : "opacity-0 scale-0 w-0"
-          }`}
-        />
-      </div>
+        style={{
+          transform: "translateX(25px) scale(0.7, 1)",
+          opacity: 0,
+        }}
+      />
+      <ScrollAnimation
+        el={
+          <div className="flex items-center gap-[40px]">
+            {links.map((link, i) => {
+              return (
+                <Link
+                  href={link.href}
+                  className={`relative transition-all text-[18px] font-bold leading-none cursor-pointer before:absolute before:w-[0%] before:h-[2px] before:bg-blueDark before:bottom-[-12px] before:left-[50%] before:translate-x-[-50%] before:transition-all hover:before:w-[100%] before:pointer-events-none active:opacity-[0.8] active:before:opacity-[0.8] active:before:w-[90%] ${
+                    activeIndex == i
+                      ? "before:w-[120%] text-blueDark pointer-events-none"
+                      : "text-violetLight before:bg-violetLight before:rounded-[0%] opacity-[0.5] hover:opacity-[1]"
+                  }`}
+                  key={i}
+                >
+                  {link.text}
+                </Link>
+              );
+            })}
+          </div>
+        }
+        gsapOptions={{
+          scale: 1,
+          opacity: 1,
+        }}
+        style={{
+          transform: "translateX(-25px) scale(0.7, 1)",
+          opacity: 0,
+        }}
+        className={"hidden xl:block"}
+      />
+      <ScrollAnimation
+        el={
+          <div
+            className="flex items-center justify-center text-black"
+            onClick={() => {
+              setMenuOpened(!menuOpened);
+            }}
+          >
+            <Menu
+              className={`h-[32px] transition-all ${
+                !menuOpened
+                  ? "opacity-[1] scale-1 w-[32px]"
+                  : "opacity-0 scale-0 w-0"
+              }`}
+            />
+            <Close
+              className={`h-[32px] transition-all ${
+                menuOpened
+                  ? "opacity-[1] scale-1 w-[32px]"
+                  : "opacity-0 scale-0 w-0"
+              }`}
+            />
+          </div>
+        }
+        gsapOptions={{
+          x: 0,
+          scale: 1,
+          opacity: 1,
+        }}
+        style={{
+          transform: "translateX(-25px) scale(0.7, 1)",
+          opacity: 0,
+        }}
+        className={"block xl:hidden"}
+      />
       <MobileMenu headerHeight={headerHeight} links={links} show={menuOpened} />
     </header>
   );
