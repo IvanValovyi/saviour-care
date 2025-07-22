@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Customer } from "./CustomersSlider";
 import { roboto } from "@/helpers/fonts";
