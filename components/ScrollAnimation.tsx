@@ -40,7 +40,7 @@ export default function ScrollAnimation({ el, style, gsapOptions, className }: P
 
     scrollTriggerInstance.current = ScrollTrigger.create({
       trigger: animBlockWrapper.current,
-      start: "top 90%",
+      start: "top 80%",
       once: true,
       onEnter: () => {
         animation.play();
