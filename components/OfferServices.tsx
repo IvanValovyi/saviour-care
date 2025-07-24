@@ -88,6 +88,7 @@ export default function OfferServices() {
             y: 0,
             scale: 1,
             opacity: 1,
+            duration: 0.7,
           }}
           style={{
             transform: "translateY(25px) scale(0)",
@@ -105,6 +106,7 @@ export default function OfferServices() {
           }
           gsapOptions={{
             opacity: 1,
+            duration: 0.5,
           }}
           style={{
             opacity: 0,
@@ -140,6 +142,7 @@ export default function OfferServices() {
                   scale: 1,
                   opacity: 1,
                   delay: Math.random() / 2.5,
+                  duration: 0.7,
                 }}
                 style={{
                   transform: `scale(${0 + Math.random()}, 0)`,
@@ -153,11 +156,12 @@ export default function OfferServices() {
         <ScrollAnimation
           el={<BlueButton text="Load more" />}
           gsapOptions={{
-				scale: 1,
+            scale: 1,
             opacity: 1,
+            duration: 0.5,
           }}
           style={{
-				transform: `scale(0.8)`,
+            transform: `scale(0.8)`,
             opacity: 0,
           }}
         />

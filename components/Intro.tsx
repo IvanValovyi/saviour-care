@@ -19,6 +19,7 @@ export default function Intro() {
             y: 0,
             scale: 1,
             opacity: 1,
+            duration: 0.7,
           }}
           style={{
             transform: "translate(50%, 50%) scale(1.5, 0)",
@@ -37,6 +38,7 @@ export default function Intro() {
           gsapOptions={{
             scale: 1,
             opacity: 1,
+            duration: 0.7,
           }}
           style={{
             transform: "scale(0)",
@@ -52,6 +54,7 @@ export default function Intro() {
           gsapOptions={{
             x: 0,
             opacity: 1,
+            duration: 0.7,
           }}
           style={{
             transform: "translateX(50%)",
@@ -76,6 +79,7 @@ export default function Intro() {
             y: 0,
             scale: 1,
             opacity: 1,
+            duration: 0.7,
           }}
           style={{
             transform: "translate(50%, 50%) scale(0, 1.5)",

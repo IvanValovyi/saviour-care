@@ -22,7 +22,7 @@ export default function ScrollAnimation({ el, style, gsapOptions, className }: P
       scrollTriggerInstance.current.kill(true);
     }
 
-    gsap.set(animBlockWrapper.current, { opacity: 0, y: 50 });
+    gsap.set(animBlockWrapper.current, { opacity: 0, y: -30 });
 
     const animation = gsap.to(
       animBlockWrapper.current,
@@ -31,7 +31,6 @@ export default function ScrollAnimation({ el, style, gsapOptions, className }: P
         y: 0,
         ...gsapOptions,
         ease: "power1.out",
-        duration: 1,
         paused: true,
         onComplete: () => {
           ScrollTrigger.refresh();

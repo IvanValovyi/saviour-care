@@ -27,6 +27,8 @@ export default function SpotBg({ className, reverse }: Props) {
           x: 0,
           scale: 1,
           opacity: 1,
+          delay: 0.2,
+          duration: 0.5,
         }}
         style={{
           transform: "translateX(-75px) scale(0)",

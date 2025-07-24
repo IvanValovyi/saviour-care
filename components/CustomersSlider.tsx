@@ -108,6 +108,7 @@ export default function CustomersSlider() {
         y: 0,
         scale: 1,
         opacity: 1,
+        duration: 0.7,
       }}
       style={{
         transform: "translateY(25px) scale(0.8)",

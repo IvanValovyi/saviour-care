@@ -86,6 +86,7 @@ export default function Header() {
           x: 0,
           scale: 1,
           opacity: 1,
+          duration: 0.5,
         }}
         style={{
           transform: "translateX(25px) scale(0.7, 1)",
@@ -115,6 +116,7 @@ export default function Header() {
         gsapOptions={{
           scale: 1,
           opacity: 1,
+          duration: 0.5,
         }}
         style={{
           transform: "translateX(-25px) scale(0.7, 1)",
@@ -150,6 +152,7 @@ export default function Header() {
           x: 0,
           scale: 1,
           opacity: 1,
+          duration: 0.5,
         }}
         style={{
           transform: "translateX(-25px) scale(0.7, 1)",

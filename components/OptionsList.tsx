@@ -112,8 +112,8 @@ export default function OptionsList() {
               gsapOptions={{
                 opacity: 1,
                 scale: 1,
-                delay: 0.5,
-                duration: 0.5,
+                delay: 0.3,
+                duration: 0.7,
               }}
               style={{
                 transform: `scale(0.9)`,

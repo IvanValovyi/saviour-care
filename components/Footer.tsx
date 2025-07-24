@@ -135,12 +135,12 @@ export default function Footer() {
         </footer>
       }
       gsapOptions={{
-        y: 0,
         scale: 1,
         opacity: 1,
+        duration: 0.5,
       }}
       style={{
-        transform: "translateY(50px) scale(0.95)",
+        transform: "scale(0.95)",
         opacity: 0,
       }}
     />
