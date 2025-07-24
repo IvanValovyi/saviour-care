@@ -9,47 +9,47 @@ interface Props {
   style: object;
   gsapOptions: object;
   className?: string;
+  resetOnEnd?: boolean;
 }
 
-export default function ScrollAnimation({ el, style, gsapOptions, className }: Props) {
+export default function ScrollAnimation({ el, style, gsapOptions, className, resetOnEnd }: Props) {
   const animBlockWrapper = useRef(null);
   const scrollTriggerInstance = useRef<ScrollTrigger | null>(null);
 
-  useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  const hasPlayed = useRef(false);
 
-    if (scrollTriggerInstance.current) {
-      scrollTriggerInstance.current.kill(true);
-    }
+  useGSAP(() => {
+    if (hasPlayed.current) return;
+
+    gsap.registerPlugin(ScrollTrigger);
 
     gsap.set(animBlockWrapper.current, { opacity: 0, y: -30 });
 
-    const animation = gsap.to(
-      animBlockWrapper.current,
-      {
-        opacity: 1,
-        y: 0,
-        ...gsapOptions,
-        ease: "power1.out",
-        paused: true,
-        onComplete: () => {
-          ScrollTrigger.refresh();
-        },
-      }
-    );
+    const animation = gsap.to(animBlockWrapper.current, {
+      opacity: 1,
+      y: 0,
+      ...gsapOptions,
+      ease: "power1.out",
+      paused: true,
+      onComplete: () => {
+        ScrollTrigger.refresh();
+      },
+    });
 
     scrollTriggerInstance.current = ScrollTrigger.create({
       trigger: animBlockWrapper.current,
-      start: "top 80%",
+      start: "top 90%",
       once: true,
       onEnter: () => {
         animation.play();
+        if (resetOnEnd) {
+          hasPlayed.current = true;
+        }
       },
     });
 
     ScrollTrigger.refresh();
-
-  }, []);
+  }, [gsapOptions]);
 
   useEffect(() => {
     const handleRefresh = () => {
