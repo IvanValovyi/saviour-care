@@ -49,7 +49,7 @@ export default function ScrollAnimation({ el, style, gsapOptions, className }: P
 
     ScrollTrigger.refresh();
 
-  }, [gsapOptions]);
+  }, []);
 
   useEffect(() => {
     const handleRefresh = () => {
