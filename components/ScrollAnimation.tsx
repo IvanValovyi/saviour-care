@@ -29,10 +29,15 @@ export default function ScrollAnimation({ el, style, gsapOptions, className, res
       opacity: 1,
       y: 0,
       ...gsapOptions,
+      delay: Math.random() / 2.5,
       ease: "power1.out",
       paused: true,
       onComplete: () => {
         ScrollTrigger.refresh();
+
+        if (resetOnEnd) {
+          hasPlayed.current = true;
+        }
       },
     });
 
@@ -42,9 +47,6 @@ export default function ScrollAnimation({ el, style, gsapOptions, className, res
       once: true,
       onEnter: () => {
         animation.play();
-        if (resetOnEnd) {
-          hasPlayed.current = true;
-        }
       },
     });
 
