@@ -26,7 +26,6 @@ export default function DotsBg({ className }: Props) {
           opacity: 1,
           duration: 0.4,
         }}
-        resetOnEnd={true}
         style={{
           transform: "translateX(-75px) scale(0)",
           opacity: 0,

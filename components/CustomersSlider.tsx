@@ -109,7 +109,6 @@ export default function CustomersSlider() {
         opacity: 1,
         duration: 0.7,
       }}
-      resetOnEnd={true}
       style={{
         transform: "scale(0.8)",
         opacity: 0,

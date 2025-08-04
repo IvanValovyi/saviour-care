@@ -9,10 +9,9 @@ interface Props {
   style: object;
   gsapOptions: object;
   className?: string;
-  resetOnEnd?: boolean;
 }
 
-export default function ScrollAnimation({ el, style, gsapOptions, className, resetOnEnd }: Props) {
+export default function ScrollAnimation({ el, style, gsapOptions, className }: Props) {
   const animBlockWrapper = useRef(null);
   const scrollTriggerInstance = useRef<ScrollTrigger | null>(null);
 
@@ -35,9 +34,7 @@ export default function ScrollAnimation({ el, style, gsapOptions, className, res
       onComplete: () => {
         ScrollTrigger.refresh();
 
-        if (resetOnEnd) {
-          hasPlayed.current = true;
-        }
+        hasPlayed.current = true;
       },
     });
 
@@ -51,7 +48,7 @@ export default function ScrollAnimation({ el, style, gsapOptions, className, res
     });
 
     ScrollTrigger.refresh();
-  }, [gsapOptions]);
+  }, []);
 
   useEffect(() => {
     const handleRefresh = () => {
