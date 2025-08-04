@@ -141,11 +141,10 @@ export default function OfferServices() {
                 gsapOptions={{
                   scale: 1,
                   opacity: 1,
-                  delay: Math.random() / 2.5,
                   duration: 0.7,
                 }}
                 style={{
-                  transform: `scale(${0 + Math.random()}, 0)`,
+                  transform: `scale(0)`,
                   opacity: 0,
                 }}
                 key={i}
